@@ -12,7 +12,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/materialize.css.css">
+    <link rel="stylesheet" href="css/materialize.css">
 
     <title><?php echo $pageTitle; ?></title>
 </head>
@@ -23,17 +23,17 @@ session_start();
     <img src="assets/logo.svg">
 </a> -->
 
-<nav>
+<div class="navigation">
     <a href="index.php"><img src="assets/logo.svg"></a>
 
-    <?php if( !$_SESSION ){ echo '<a href="login.php">Holiday Houses</a>'; }?>
-    <?php if( !$_SESSION ){ echo '<a href="login.php">All Houses</a>'; }?>
-    <?php if( !$_SESSION ){ echo '<a href="login.php">Contact</a>'; }?>
-    <?php if( !$_SESSION ){ echo '<a href="login.php">Login</a>'; }?>
+    <a href="index">Holiday Houses</a>
+    <a href="all_houses">All Houses</a>
+    <a href="profile">My profile</a>
+    <a href="messenges">Messages</a>
+    <a href="login">Login</a>
+    <a href="contact">Contact</a>
 
-    <?php if( $_SESSION ){ echo '<a href="profile.php">Profile</a>'; }?>
-    <?php if( $_SESSION ){ echo '<a href="profile.php">Messages</a>'; }?>
-</nav>
+</div>
 
 <div class="burger-menu burger-menu--closed" >
             <div class="bar"></div>

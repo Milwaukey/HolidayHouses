@@ -28,7 +28,7 @@
   }
   
   
-  nav {
+  .navigation {
       width: 100vw;
       height: 100vh;
       background: #f9f9f9;
@@ -43,37 +43,22 @@
       padding: 30px;
   }
   
-  nav a:first-of-type{
+  .navigation a:first-of-type{
     width: 230px;
     align-self: center;
   }
   
-  nav a {
+  .navigation a {
       padding: 10px;
       text-decoration: none;
-      color: #282828;
+      color: #f9f9f9;
       text-transform: uppercase;
       letter-spacing: 2px;
       position: relative;
   }
   
-  
-  nav .cart {
-    background: #568890;
-    color: white;
-    border-radius: 10px;
-    margin: 50px 0 0 0;
-    width: 200px;
-    height: 35px;
-    align-self: center;
-  }
-  
-  nav .cart img {
-    width: 17px;
-    margin-right: 5px;
-  }
-  
-  
+
+
   .burger-menu {
       position: fixed;
       z-index: 5;
@@ -229,7 +214,7 @@
           display: none;
       }
   
-      nav {
+      .navigation {
           height: 75px;
           display: flex;
           justify-content: flex-end;
@@ -243,18 +228,53 @@
           z-index: 6;
       }
   
-      nav a:first-of-type{
+      .navigation a:first-of-type{
         display: none;
-      }
-  
-      nav hr {
-        display: none;
-      }
-      
-      nav .cart {
-        margin: 0 20px 0 20px;
-        width: 150px;
       }
   
     }
   
+
+
+
+
+
+
+
+
+    /* ***************************** ************************************************************************************************************
+                                                             FORSIDE 
+******************************** *********************************************************************************************************** */
+
+#hero {
+  width: 100vw;
+    max-height: 650px;
+    overflow: hidden;
+    position: relative;
+}
+
+#hero .hero_tagline {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-top: 200px;
+  color: white;
+  z-index: 1;
+}
+
+#hero .overlay {
+  width: 100vw;
+  height: 650px;
+  top: 0;
+  /* background: black; */
+  position: absolute;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  /* opaci/ty: .3; */
+}
+
+#hero img {
+  width: 100%;
+  object-fit: cover;
+  object-position: 0px -290px;
+}
