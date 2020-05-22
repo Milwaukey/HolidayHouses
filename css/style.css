@@ -4,6 +4,28 @@
     margin: 0;
 }
 
+body {
+  font-family: avenir_light;
+  background: #f9f9f9;
+}
+
+input {
+  font-family: avenir_light!important;
+}
+
+@font-face {
+  font-family: Shopping_script;
+  src: url('../assets/fonts/Shopping\ Script.otf');
+}
+@font-face {
+  font-family: avenir_black;
+  src: url('../assets/fonts/avenir-black.ttf');
+}
+@font-face {
+  font-family: avenir_light;
+  src: url('../assets/fonts/avenir-light.ttf');
+}
+
 
 
 /* ***************************** ************************************************************************************************************
@@ -15,11 +37,13 @@
       height: 75px;
       position: fixed;
       top: 0;
-      z-index: 1;
+      z-index: 2;
+      /* background: black;
+      opacity: 0.2; */
   }
   
   .logo {
-    top: 25px;
+    top: 12px;
     left: 25px;
     position: fixed;
     width: 130px;
@@ -51,10 +75,11 @@
   .navigation a {
       padding: 10px;
       text-decoration: none;
-      color: #f9f9f9;
+      color: #282828;
       text-transform: uppercase;
       letter-spacing: 2px;
       position: relative;
+      font-size: 15px;
   }
   
 
@@ -81,6 +106,16 @@
       width: 100%;
       display: block;
       background-color: black;
+    }
+
+    .burger-menu .bar.indexBurerMenu {
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+      height: 1px;
+      width: 100%;
+      display: block;
+      background-color: white;
     }
   
     .index_desktop_menu .bar {
@@ -131,6 +166,10 @@
     .burger-menu--opened .bar {
       background-color: black;
     }
+
+    .burger-menu--opened .bar.indexBurerMenu {
+      background-color: black;
+    }
     
     .burger-menu--opened .bar:nth-of-type(1) {
       -webkit-transform: rotate(45deg);
@@ -157,51 +196,7 @@
               transition-delay: 0.3s;
       height: 1px;
     }
-  
-  
-    .underline::after {
-      content: "";
-      border-bottom: solid 2px #568890;
-      position: absolute;
-      top: 40px;
-      left: 0;
-      width: 40%;
-      margin-left: 30%;
-      -webkit-transform: scaleX(0);
-              transform: scaleX(0);
-      -webkit-transform-origin: right;
-              transform-origin: right;
-      transition: -webkit-transform 0.25s;
-      transition: transform 0.25s;
-      transition: transform 0.25s, -webkit-transform 0.25s;
-    }
-    
-    .underline:hover::after {
-      -webkit-transform-origin: left;
-              transform-origin: left;
-      -webkit-transform: scaleX(1);
-              transform: scaleX(1);
-    }
-    @-webkit-keyframes underline {
-      from {
-        -webkit-transform: scaleX(0);
-                transform: scaleX(0);
-      }
-      to {
-        -webkit-transform: scaleX(1);
-                transform: scaleX(1);
-      }
-    }
-    @keyframes underline {
-      from {
-        -webkit-transform: scaleX(0);
-                transform: scaleX(0);
-      }
-      to {
-        -webkit-transform: scaleX(1);
-                transform: scaleX(1);
-      }
-    }
+
 
     .show {
       display: flex;
@@ -227,6 +222,10 @@
           background: transparent;
           z-index: 6;
       }
+
+      .navigation a {
+        color: white;
+      }
   
       .navigation a:first-of-type{
         display: none;
@@ -236,19 +235,23 @@
   
 
 
+    .nav_a_profile {
+      color: black;
+    }
 
 
 
 
 
 
-    /* ***************************** ************************************************************************************************************
+/* ***************************** ************************************************************************************************************
                                                              FORSIDE 
 ******************************** *********************************************************************************************************** */
 
 #hero {
   width: 100vw;
-    max-height: 650px;
+    /* max-height: 650px; */
+    height: 80vh;
     overflow: hidden;
     position: relative;
 }
@@ -257,24 +260,942 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  margin-top: 200px;
+  margin-top: 140px;
   color: white;
   z-index: 1;
 }
 
+#hero .hero_tagline h1 {
+  font-family: Shopping_script;
+  font-size: 160px;
+  margin-top: -80px;
+  padding-left: 50px;
+  line-height: 1;
+  font-weight: 100;
+}
+
+#hero .hero_tagline div:first-of-type {
+  text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 10px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+
+#hero .hero_tagline  div:last-of-type {
+  font-size: 30px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  line-height: 0.6;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+}
+
 #hero .overlay {
   width: 100vw;
-  height: 650px;
+  /* height: 650px; */
+  height: 80vh;
   top: 0;
-  /* background: black; */
   position: absolute;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
-  /* opaci/ty: .3; */
 }
 
 #hero img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: 0px -290px;
+}
+
+#searchBox {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: transparent;
+  margin-top: -270px;
+  position: relative;
+  padding: 20px;
+}
+
+#searchBox #frmSearchBox {
+  color: black;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: 1px solid rgba(155, 155, 155, 0);
+  grid-gap: 15px;
+  overflow: hidden;
+}
+
+#searchBox #frmSearchBox input {
+  border: none;
+  outline: none;
+  border-right: 1px solid #ececec;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 3px solid transparent;
+  height: 76px;
+  min-width: 160px;
+  padding-left: 15px;
+  background: white;
+  box-shadow: 0 1px 7px rgba(155, 155, 155, 0.12), 0 1px 2px rgba(155, 155, 155, 0.12);
+}
+
+#searchBox #frmSearchBox input:last-of-type {
+border-right: 0px;
+}
+
+#searchBox #frmSearchBox input:focus {
+  border-bottom: 3px solid #F8E700;
+  box-shadow: 0 1px 0 0 #F8E700;
+  transition: all 0.3s;
+}
+
+
+#searchBox .btnSearch {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #F8E700;
+  cursor: pointer;
+  position: relative;
+  height: 76px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.datepicker-date-display, .datepicker-day-button:focus, .datepicker-table td.is-selected {
+  color: black;
+  background-color: #F8E700!important;
+}
+
+button.btn-flat.datepicker-cancel.waves-effect, button.btn-flat.datepicker-done.waves-effect, button.datepicker-day-button {
+  color: black;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  #hero .hero_tagline h1 {
+    font-size: 200px;
+    margin-top: -100px;
+  }
+  
+  #hero .hero_tagline div:first-of-type {
+      font-size: 30px;
+  }
+  
+  #hero .hero_tagline  div:last-of-type {
+    font-size: 40px;
+    text-transform: uppercase;
+  }
+  
+
+  #hero .hero_tagline {
+    margin-top: 250px;
+  }
+
+  #searchBox {
+    max-width: 700px;
+    margin-top: -50px;
+    background: white;
+    box-shadow: 0 1px 7px rgba(155, 155, 155, 0.12), 0 1px 2px rgba(155, 155, 155, 0.12);
+    height: 76px;
+    padding: 0;
+  }
+
+  #searchBox #frmSearchBox input {
+    background: transparent;
+    box-shadow: none;
+
+  }
+
+  #searchBox #frmSearchBox {
+    grid-template-columns: 1fr 3fr 1fr 1fr;
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+  #searchBox {
+    max-width: 1000px;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+  #searchBox {
+    max-width: 1100px;
+  }
+
+}
+
+
+    /* ***************************** ************************************************************************************************************
+                                                             ALL HOUSES SEARCH RESULTS 
+******************************** *********************************************************************************************************** */
+
+
+#allHousesContainer {
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 15px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+.like_house, .delete_house {
+  position: absolute;
+  top: 15px;
+  z-index: 1;
+  right: 15px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+
+.like_house i, .delete_house i {
+  font-size: 35px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  #allHousesContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+  #allHousesContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+}
+
+
+
+.card {
+  max-width: 350px!important;
+  margin: 0 auto!important;
+}
+
+
+
+    /* ***************************** ************************************************************************************************************
+                                                             LOGIN 
+******************************** *********************************************************************************************************** */
+
+
+#login {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: Pink;
+
+  background-image: url('../images/login.jpg');
+  background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+}
+
+#login .signup_container, #login .login_container {
+  width: 100%;
+  height: 100%;
+  /* background: pink; */
+  position: fixed;
+  /* padding: 20px; */
+  top: 0;
+}
+
+
+#login .signup_container .signup_wrapper, #login .login_container .login_wrapper {
+  background: white;
+  /* max-width: 330px; */
+  height: 100%;
+  padding: 25px;
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+
+#login .login_container .login_wrapper form {
+  display: grid;
+  margin-top: 150px;
+}
+
+#login .signup_container .signup_wrapper form {
+  margin-bottom: 12px;
+  display: grid;
+  margin-top: 40px;
+}
+
+#login .login_container form label, #login .signup_container form label {
+  left: 0!important;
+  color: black;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: avenir_black;
+  
+}
+
+#login .login_container form input:focus, input.file-path.validate.valid, #login .signup_container form input:focus, input.file-path.validate.valid {
+  border-bottom: 1px solid #F8E700;
+  box-shadow: 0 1px 0 0 #F8E700;
+}
+
+#login h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btnSubmit {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #F8E700;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+#login .login_container a, #login .signup_container a {
+  color: #7C7C7C!important;
+  font-weight: 100;
+  font-size: 12px;
+}
+
+#login .signup_container .signup_wrapper .file-field {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: avenir_black;
+}
+
+
+.btn {
+  background-color: #F8E700!important;
+  color: black!important;
+}
+
+@media only screen and (min-width: 768px) {
+
+  #login .login_container, #login .signup_container {
+    padding: 0%;
+    height: 100vh;
+    top: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #login .login_container .login_wrapper {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  #login .signup_container .signup_wrapper {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  #login .login_container  .login_wrapper form {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 200px;
+  }
+
+  #login .signup_container  .signup_wrapper form {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 0;
+  }
+
+  #login .signup_container .signup_wrapper .input_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
+  
+
+
+}
+
+
+
+
+    /* ***************************** ************************************************************************************************************
+                                                             PROFILE  
+******************************** *********************************************************************************************************** */
+
+#profile_header {
+width: 100vw;
+height: 500px;
+padding-top: 75px;
+}
+
+#profile_header .profile_info_wrapper {
+  max-width: 560px;
+  min-height: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 15px;
+
+  display: grid;
+  /* grid-template-columns: 1fr 2fr; */
+}
+
+#profile_header .profile_info_wrapper .profile_image {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin: 0 auto;
+}
+
+#profile_header .profile_info_wrapper .profile_image img {
+  object-fit: cover;
+  height: 100%;
+}
+
+#profile_header .profile_info_wrapper .profile_info {
+  padding: 15px 0 0 0;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+#profile_header .profile_info_wrapper .profile_info .followers {
+  margin-top: 20px;
+}
+
+
+#profile_header .profile_info_wrapper .profile_info h4 {
+    font-family: avenir_light;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+
+#profile_container {
+  padding: 50px 15px 15px 15px;
+}
+
+#profile_container .profile_tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#profile_container .profile_tabs .card-tabs, .tabs_visit_profile {
+  max-width: 700px;
+  margin: 0 auto;
+  /* border-bottom: 1px solid #7C7C7C; */
+}
+
+
+.tabs_visit_profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+    height: 48px;
+    border-bottom: 1px solid #7C7C7C;
+    cursor: pointer;
+}
+
+.tabs {
+  background: transparent!important;
+}
+
+.card-content.profile_card {
+  margin-top: 35px;
+  margin-bottom: 100px;
+}
+
+.tabs .tab li {
+  cursor: pointer;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: black!important;
+  background: none!important;
+}
+
+
+.tabs .tab a {
+  color: black!important;
+  border-bottom: 1px solid #7C7C7C;
+}
+
+.tabs .indicator {
+  background-color: #F8E700!important;
+}
+
+.tabs .valocity-animation {
+  background: #F8E700!important;
+}
+.tabActive {
+  cursor: pointer;
+  border-bottom: 2px solid #F8E700;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile_card_container {
+  display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+
+.newHouseCard {
+  min-width: 350px!important;
+}
+
+.centerVerticalAlign {
+  height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerVerticalAlign h5 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.centerVerticalAlign p {
+  color: #F8E700;
+  letter-spacing: 2px;
+}
+
+@media only screen and (min-width: 768px) {
+
+  #profile_header {
+    height: 400px;
+  }
+
+  #profile_header .profile_info_wrapper {
+    max-width: 560px;
+    min-height: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 15px;
+  
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+
+#profile_header .profile_info_wrapper .profile_info {
+  padding: 55px 0 0 40px;
+  letter-spacing: 3px;
+  text-align: left;
+}
+
+.profile_card_container {
+  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+  .profile_card_container {
+    display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 20px;
+  }
+
+}
+
+
+
+/* ***************************** ************************************************************************************************************
+                                                             DETAIL_VIEW  
+******************************** ************************************************************************************************************/
+
+
+#detail_view {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.slideShow {
+  position: relative;
+  overflow: hidden;
+  height: 380px;
+  width: 100vw;
+}
+
+.slide_item {
+min-height: 380px;
+}
+
+.slide_content {
+    grid-gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 380px;
+}
+
+.slide_content img {
+  width: 100%;
+  object-fit: cover;
+    height: 100%;
+}
+
+#dots_wrapper {
+    display: flex;
+    position: absolute;
+    bottom: 75px;
+}
+
+.dots_style {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+}
+
+.dot_nagvigation {
+
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 0 8px;
+    border: 2px solid #fff;
+    transition: .5s background-color;
+}
+
+.dot_nagvigation:hover {
+    background-color: #fff;
+}
+
+.active_dot {
+    background-color: #F8E700;
+    border: 2px solid #F8E700
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: .5s;
+}
+
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+.overlay {
+  position: absolute;
+    background: #282828;
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+}
+
+
+.houseInfo {
+  width: 350px;
+  margin: 0 auto;
+  background:rgba(249, 249, 249, 0.8);
+  padding: 25px 20px 20px 20px;
+  margin-top: -60px;
+  position: relative;
+
+  overflow: hidden;
+    /* overflow-y: scroll; */
+}
+
+.houseInfo .houseScrollInfo {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 380px;
+}
+
+.houseInfo .locationPerson div{
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.houseInfo h4 {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  font-weight: 900;
+  font-size: 27px;
+  letter-spacing: 2px;
+}
+
+.houseInfo hr {
+  width: 140px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.houseInfo a {
+  color: black;
+}
+
+.houseInfo .houseDescription {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: #707070;
+}
+
+.facilities {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  align-items: center;
+  text-align: center;
+
+}
+
+.facilities i {
+  font-size: 35px;
+}
+
+.facilities p {
+  font-size: 12px;
+}
+
+
+.houseInfo .bookNow{
+  background: rgba(40, 40, 40, 1);
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.houseInfo .bookNow .bntBook {
+  background: #F8E700;
+    color: black;
+    padding: 5px;
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) {
+
+  #detail_view {
+    grid-template-columns: 2fr 3fr;
+    grid-auto-flow: row dense;
+
+    overflow: hidden;
+  }
+
+  .slideShow {
+    grid-column: 2/3;
+    height: 100%;
+    width: 100%;
+  }
+
+  .slide_item {
+    min-height: 100%;
+    }
+    
+  .slide_content {
+      min-height: 100%;
+  }
+
+  .slide_content img {
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .dots_style {
+    left: 80%;
+    transform: none;
+  }
+
+  .houseInfo {
+    grid-column: 1/2;
+    width: 480px;
+    height: calc(100vh - 160px);
+    margin-top: 160px;
+    position: unset;
+  }
+
+  .houseInfo .houseScrollInfo {
+    max-height: 100%;
+
+  }
+
+  .desktop_view {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    width: 100vw;
+    height: 125px;
+    left: 0;
+    bottom: 10%;
+  }
+
+  .facilityWrapper {
+    height: 125px;
+    background: white;
+  }
+
+  .facilities {
+    width: 480px;
+    height: 125px;
+    /* margin-left: auto; */
+    margin: 0 auto;
+    background: white;
+  }
+
+  .bookNow {
+    height: 125px!important;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0!important;
+}
+
+}
+
+
+
+/* ***************************** ************************************************************************************************************
+                                                             BOOKING  
+******************************** ************************************************************************************************************/
+
+
+#bookingContainer {
+  width: 100vw;
+  height: calc(100vh - 75px);
+  margin-top: 75px;
+  padding: 20px;
+}
+
+#bookingContainer h3 {
+  margin-top: 80px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+}
+
+#bookingContainer .subLine {
+  text-align: center;
+    margin-top: -15px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#bookingContainer form {
+  display: grid;
+  grid-gap: 15px;
+  margin-top: 25px;
+  margin-bottom: 60px;
+}
+
+#bookingContainer form .inputWrapperContainer .inputWrap {
+  position: relative;
+}
+
+
+
+#bookingContainer form h5 {
+  margin-top: 55px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.inputWrap .calendarIcon {
+  position: absolute;
+  right: 20px;
+  top: 32px;
+}
+
+#bookingContainer form .btnSubmit {
+  width: 340px;
+  padding: 10px;
+  background: #F8E700;
+  border: none;
+  margin: 0 auto;
+  margin-top: 35px;
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+
+#bookingContainer form {
+
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#bookingContainer form .inputWrapperContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+}
+
+#bookingContainer form .paymentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+}
+
+
 }
