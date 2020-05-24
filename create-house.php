@@ -124,4 +124,4 @@
 
 
 
-<?php $linkToscript = '<script src="js/createHouse.js"></script>';; require_once(__DIR__ . '/footer.php'); ?>
+<?php $linkToscript = '<script src="js/createHouse.js"></script>'; require_once(__DIR__ . '/footer.php'); ?>

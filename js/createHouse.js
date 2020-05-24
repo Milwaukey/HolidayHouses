@@ -1,6 +1,6 @@
 $('#frmCreateHouse').submit(function(){
 
-
+    console.log("test")
     var frmCreateHouse = document.querySelector('#frmCreateHouse')
     
     var data = new FormData(frmCreateHouse);
@@ -15,22 +15,19 @@ $('#frmCreateHouse').submit(function(){
             
         }).
         done(function(sjData){
-            jData = JSON.parse(sjData);
+            // jData = JSON.parse(sjData);
 
-            console.log(jData.status)
+            // console.log(jData.status)
     
-            if(jData.status == 1){
-
-                console.log('message')
 
                 window.location.href = 'profile'
 
-            }
+    
     
     
         }).
         fail(function(){
-
+            console.loh('error')
 
         })
     
