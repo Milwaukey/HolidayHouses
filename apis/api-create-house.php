@@ -6,7 +6,7 @@ require_once(__DIR__ . '/functions.php');
 
 
 //Variable associated with a house
-$iUserID        = $_POST['intUserID'];    //kommer fra session
+$iUserID        = $_SESSION['userID'];    //kommer fra session
 $tTitle         = $_POST['txtTitle'];
 $iArea          = $_POST['intArea'];
 $tDescription   = $_POST['txtDescription'];

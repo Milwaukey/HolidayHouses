@@ -83,10 +83,6 @@
                 </div>
 
 
-                <div class="input-field">
-                    <input name="intUserID" placeholder="intUserID" id="intUserID" type="text" class="validate">
-                    <label for="intUserID">User ID</label>
-                </div> 
 
                 <div class="file-field input-field">
                     <div class="btn">
