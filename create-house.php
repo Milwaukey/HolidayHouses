@@ -1,4 +1,4 @@
-<?php $pageTitle = 'Signup'; $active = 'signup'; require_once(__DIR__ . '/header.php'); ?>
+<?php $pageTitle = 'createHouse'; $active = 'signup'; require_once(__DIR__ . '/header.php'); ?>
 
 
 
@@ -8,7 +8,7 @@
         <div class="signup_wrapper">
 
 
-            <form id="frmCreateHouse">
+            <form id="frmCreateHouse" enctype="multipart/form-data">
                 <h3>create House</h3>
 
 
@@ -38,21 +38,26 @@
                 </div>
 
 
-                <div class="input-field">
+                <p>
+                    <label for="boolPool">
                     <input name="boolPool" placeholder="Pool" id="boolPool" type="checkbox" class="validate">
-                    <label for="boolPool">Pool</label>
-                </div>
-                <div class="input-field">
+                        <span>pool</span>
+                    </label>
+                </p>
+                <p>
+                    <label for="boolPets">
                     <input name="boolPets" placeholder="Pets" id="boolPets" type="checkbox" class="validate">
-                    <label for="boolPets">Pets</label>
+                        <span>pets Allowed</span>
+                    </label>
+                </p>
+                <br>
+                <div class="input-field">
+                    <input name="intPoolSize" placeholder="Pool size" id="intPoolSize" type="text" class="validate">
+                    <label for="intPoolSize">Pool size</label>
                 </div>
                 <div class="input-field">
-                    <input name="intPoolsize" placeholder="Pool size" id="intPoolsize" type="text" class="validate">
-                    <label for="intPoolsize">Pool size</label>
-                </div>
-                <div class="input-field">
-                    <input name="inBathrooms" placeholder="Number of Bathrooms" id="inBathrooms" type="text" class="validate">
-                    <label for="inBathrooms">Bathrooms</label>
+                    <input name="intBathrooms" placeholder="Number of Bathrooms" id="intBathrooms" type="text" class="validate">
+                    <label for="intBathrooms">Bathrooms</label>
                 </div>
                 <div class="input-field">
                     <input name="intBedrooms" placeholder="Bedrooms" id="intBedrooms" type="text" class="validate">
@@ -83,10 +88,18 @@
                     <label for="intUserID">User ID</label>
                 </div> 
 
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="image">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input name="image" class="file-path validate" type="text">
+                    </div>
+                </div>
 
 
                 <button class="btnSubmit">Submit</button>
-                <a href="login">Already have an account? Login here!</a>
             </form>
         </div>
     </div>

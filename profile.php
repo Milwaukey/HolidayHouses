@@ -134,8 +134,8 @@ if($_GET){   $visitUserID = $_GET['id'];    ?>
       </div>
       <div id="test6" class="profile_card_container">
 
-
-      <div class="card grey darken-3 newHouseCard" style="cursor: pointer;">
+    
+      <div id="linkHouse" class="card grey darken-3 newHouseCard" style="cursor: pointer;">
         <div class="card-content white-text center-align centerVerticalAlign">
           <h5>Create</h5>
           <p>NEW HOUSE</p>

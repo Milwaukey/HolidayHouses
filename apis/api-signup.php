@@ -59,9 +59,30 @@ $ok = $stmt->execute([$tEmail]);
 if($stmt->rowCount() >= 1){ echo sendResponse(1, 'Email already exists', __LINE__);}
 
 
-$query ='INSERT INTO users (username, email, password, firstname, lastname) VALUES (?,?,?,?,?)';
+
+
+//image
+$sExtension = "." . pathinfo( $_FILES['image']['name'] , PATHINFO_EXTENSION) ;
+$tImage = uniqid() . $sExtension;
+
+
+$image_name = $_FILES['image']['name'];
+$target_file = "../profileImages/$tImage";
+$targetFileForItem = "profileImages/$tImage";
+
+move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+
+
+
+
+
+
+
+
+
+$query ='INSERT INTO users (username, email, password, firstname, lastname,profileImage) VALUES (?,?,?,?,?,?)';
 $stmt = $db->prepare($query);
-$ok = $stmt->execute([$tUsername,$tEmail,$tPassword,$tFName,$tLName]);
+$ok = $stmt->execute([$tUsername,$tEmail,$tPassword,$tFName,$tLName,$tImage]);
 
 $userIDreturned =  $db->LastInsertId();
 

@@ -7,6 +7,7 @@ CREATE TABLE users(
     password varChar (100) NOT NULL,
     firstname varChar(50) NOT NULL,
     lastname varChar(50) NOT NULL,
+    profileImage varchar (50),
     created_at datetime DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -62,7 +63,7 @@ CREATE TABLE houses (
     houseTypeID int NOT NULL,
     title varChar(30) NOT NULL,
     description varChar(500) NOT NULL,
-    aera int NOT NULL,
+    area int NOT NULL,
     facilityID int NOT NULL,
     adressID int NOT NULL,
     FOREIGN KEY (userID) REFERENCES users(userID),

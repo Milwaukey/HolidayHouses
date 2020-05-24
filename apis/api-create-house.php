@@ -1,5 +1,5 @@
 <?php
-// require_once(__DIR__ . '/../includes/connection.php'); 
+require_once(__DIR__ . '/connection.php'); 
 require_once(__DIR__ . '/functions.php'); 
 
 
@@ -34,6 +34,7 @@ if(strlen($tDescription) < 1 ){ echo sendResponse(1, 'First name to short', __LI
 $bPool          = $_POST['boolPool'];
 $bPets          = $_POST['boolPets'];
 $iPoolsize      = $_POST['intPoolSize'];
+echo $iPoolsize;
 $iBedrooms      = $_POST['intBedrooms'];
 $iBathrooms     = $_POST['intBathrooms'];
 
@@ -42,7 +43,7 @@ if($iBedrooms < 1) { echo sendResponse(1, 'you must have atleast one bedroom', _
 //bathroom valdation
 if($iBathrooms < 1) { echo sendResponse(1, 'you must have atleast one bathroom', __LINE__);}
 //pool validation
-if(($bPool == true) || ($bPool == 1) && ($iPoolsize < 1)) { echo sendResponse(1, 'your pool must have a size', __LINE__);}
+if(($bPool == 1) && ($iPoolsize < 1)) { echo sendResponse(1, 'your pool must have a size', __LINE__);}
 
 
 
@@ -90,6 +91,26 @@ $iAdressID    = $db->lastInsertId();
 $query ='INSERT INTO houses ( userID, houseTypeID, title, description, area, facilityID, adressID)VALUES (?,?,?,?,?,?,?)';
 $stmt = $db->prepare($query);
 $ok = $stmt->execute([$iUserID, $iHouseTypeID, $tTitle, $tDescription,$iArea ,$iFacilityID, $iAdressID]);
+
+
+
+
+//IMAGE
+$iHouseID = $db->lastInsertId();
+$sExtension = "." . pathinfo( $_FILES['image']['name'] , PATHINFO_EXTENSION) ;
+$tImage = uniqid() . $sExtension;
+
+
+$image_name = $_FILES['image']['name'];
+$target_file = "../images/$tImage";
+$targetFileForItem = "images/$tImage";
+
+move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+
+$query ='INSERT INTO images (imageName, houseID )VALUES (?,?)';
+$stmt = $db->prepare($query);
+$ok = $stmt->execute([$tImage,$iHouseID]);
+
 
 echo sendResponse(1, 'SUCCES!', __LINE__);
 

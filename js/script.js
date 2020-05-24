@@ -7,3 +7,7 @@ $(".burger-menu").click(function(){
 
 })
 
+$('#linkHouse').click(function(){
+    location.href = 'create-house';
+})
+

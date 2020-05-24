@@ -1,9 +1,9 @@
-$('#frmSignup').submit(function(){
+$('#frmCreateHouse').submit(function(){
 
 
-    var frmSignup = document.querySelector('#frmCreateHouse')
+    var frmCreateHouse = document.querySelector('#frmCreateHouse')
     
-    var data = new FormData(frmCreateHouse); // <-- 'this' is your form element
+    var data = new FormData(frmCreateHouse);
     
         $.ajax({
     
@@ -15,7 +15,6 @@ $('#frmSignup').submit(function(){
             
         }).
         done(function(sjData){
-    
             jData = JSON.parse(sjData);
 
             console.log(jData.status)

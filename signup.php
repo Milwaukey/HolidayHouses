@@ -8,7 +8,7 @@
         <div class="signup_wrapper">
 
 
-            <form id="frmSignup">
+            <form id="frmSignup" enctype="multipart/form-data">
                 <h3>Signup</h3>
                 <div class="input-field">
                     <input name="txtUsername" placeholder="MyAwesomeUsername" id="txtUsername" type="text" class="validate">
@@ -36,11 +36,11 @@
 
 
                 <!-- <div class="input-field"> -->
-                <div class="file-field input-field">
+                <!-- <div class="file-field input-field">
                         <div>FILE</div>
                         <input type="file">
                         <input class="file-path" type="text" placeholder="Choose your profile image ...">
-                    </div>
+                    </div> -->
                 <!-- </div> -->
                     
 
@@ -57,6 +57,18 @@
                     <label for="txtLastName">Last Name</label>
                 </div>
                 </div>    
+
+
+                
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="image">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input name="image" class="file-path validate" type="text">
+                    </div>
+                </div>
 
 
 
