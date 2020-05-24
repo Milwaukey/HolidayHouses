@@ -1,4 +1,4 @@
-<?php $pageTitle = 'createHouse'; $active = 'signup'; require_once(__DIR__ . '/header.php'); ?>
+<?php $pageTitle = 'createHouse'; $active = 'signup'; require_once(__DIR__ . '/header.php');require_once(__DIR__ . '/apis/connection.php') ?>
 
 
 
@@ -89,12 +89,25 @@
 
                 <div class="input-field col s12" name="intHouseTypeID" id="intHouseTypeID">
                     <select>
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">house</option>
-                    <option value="2">apartment</option>
+                    <option disabled value="NULL">pick type</option>
+                <?php
+                    $smt = $db->prepare('SELECT * FROM housetype');
+                    $smt->execute();
+                    $data = $smt->fetchAll();
+                
+                ?>
+                <?php foreach ($data as $row): ?>
+                    <option value="<?=$row["houseTypeID"]?>"><?=$row["houseType"]?></option>
+                <?php endforeach ?>
                     </select>
                     <label>Pick Type</label>
                 </div>
+
+
+
+        
+
+ 
 
 
 
