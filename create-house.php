@@ -77,10 +77,30 @@
                     <input name="txtDescription" placeholder="Description" id="txtDescription" type="text" class="validate">
                     <label for="txtDescription">Description</label>
                 </div>
-                <div class="input-field">
+
+
+
+
+
+                <!-- <div class="input-field">
                     <input name="intHouseTypeID" placeholder="House Type" id="intHouseTypeID" type="text" class="validate">
                     <label for="intHouseTypeID">House Type</label>
+                </div> -->
+
+                <div class="input-field col s12" name="intHouseTypeID" id="intHouseTypeID">
+                    <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">house</option>
+                    <option value="2">apartment</option>
+                    </select>
+                    <label>Pick Type</label>
                 </div>
+
+
+
+
+
+
 
 
 
@@ -104,4 +124,4 @@
 
 
 
-<?php $linkToscript = '<script src="js/createHouse.js"></script>'; require_once(__DIR__ . '/footer.php'); ?>
+<?php $linkToscript = '<script src="js/createHouse.js"></script>';; require_once(__DIR__ . '/footer.php'); ?>

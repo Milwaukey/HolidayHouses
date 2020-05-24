@@ -106,3 +106,10 @@ CREATE TABLE payments(
     cardDate char(5) NOT NULL,
     ccv char(3) NOT NULL
 );
+
+CREATE TABLE housetype(
+    houseTypeID int AUTO_INCREMENT PRIMARY KEY,
+    houseType varChar(25) NOT NULL
+);
+
+INSERT INTO housetype (houseType) VALUES ('house'),('apartment');
